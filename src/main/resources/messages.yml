@@ -91,8 +91,8 @@ command.housing.settings.item.manage.name: '<!italic><green>Add & Remove Residen
 command.housing.settings.item.manage.lore:
   - "<!italic><gray>Manage your current Residents here!</gray>"
   - ''
-  - "<!italic><aqua><bold><key:key.attack></bold></aqua><gray> to add a Resident!</gray>"
-  - "<!italic><aqua><bold><key:key.use></bold></aqua><gray> to remove a Resident!</gray>"
+  - "<!italic><aqua><bold><key:key.attack></bold></aqua><gray> to add a ResidentGui!</gray>"
+  - "<!italic><aqua><bold><key:key.use></bold></aqua><gray> to remove a ResidentGui!</gray>"
   -
 command.housing.settings.item.list.name: '<!italic><green>List of Residents</green>'
 command.housing.settings.item.list.lore:
@@ -114,7 +114,7 @@ command.housing.settings.item.toggleMagic.lore:
   - "<!italic><aqua><bold><key:key.attack></bold></aqua><gray> to toggle magic for Visitors!</gray>"
   - "<!italic><aqua><bold><key:key.use></bold></aqua><gray> to toggle magic for Residents!</gray>"
 
-command.housing.settings.item.toggleResidentAccess.name: '<!italic><gold>Toggle Resident Access</gold>'
+command.housing.settings.item.toggleResidentAccess.name: '<!italic><gold>Toggle ResidentGui Access</gold>'
 command.housing.settings.item.toggleResidentAccess.lore:
   - "<!italic><gray>Status for Chest Access:</gray> <green>Enabled</green>"
   - "<!italic><gray>Status for Build Access:</gray> <green>Enabled</green>"

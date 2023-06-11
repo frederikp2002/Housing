@@ -18,14 +18,16 @@ import org.bukkit.inventory.meta.ItemMeta;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Resident implements Listener {
+public class ResidentGui implements Listener {
 
     private final Housing plugin;
+    private final AddResident addResident;
     private final List<ResidentItem> residentItems = new ArrayList<>();
-    private final TextComponent title = Component.text("Resident Settings");
+    private final TextComponent title = Component.text("ResidentGui Settings");
 
-    public Resident(Housing plugin) {
+    public ResidentGui(Housing plugin) {
         this.plugin = plugin;
+        this.addResident = new AddResident(plugin);
 
         residentItems.add(new ResidentItem(
                 Material.PLAYER_HEAD,
@@ -73,10 +75,11 @@ public class Resident implements Listener {
     }
 
     private void handleItemClick(Player player, int slot) {
-        if (slot == 15) {
-            player.sendMessage("test");
+        if (slot == 12) {
+            player.closeInventory();
+             addResident.openAddResidentGUI(player);
         } else if(slot == 30) {
-            player.sendMessage("Resident Access");
+            player.sendMessage("ResidentGui Access");
         }
     }
 

@@ -2,7 +2,7 @@ package net.leyak.housing.commands;
 
 import net.kyori.adventure.text.Component;
 import net.leyak.housing.Housing;
-import net.leyak.housing.commands.resident.Resident;
+import net.leyak.housing.commands.resident.ResidentGui;
 import net.leyak.housing.commands.settings.Settings;
 import net.leyak.housing.handlers.PlayerInteraction;
 import net.leyak.housing.handlers.WorldManagement;
@@ -20,7 +20,7 @@ public class CommandHouse implements CommandExecutor {
     private final WorldManagement worldManagement;
     private final PlayerInteraction playerInteraction;
     private final Settings settings;
-    private final Resident resident;
+    private final ResidentGui resident;
     private final CommandHelp commandHelp;
     private final CommandReload reload;
 
@@ -33,7 +33,7 @@ public class CommandHouse implements CommandExecutor {
         this.worldManagement = new WorldManagement(plugin);
         this.playerInteraction = new PlayerInteraction(plugin);
         this.settings = new Settings(plugin);
-        this.resident = new Resident(plugin);
+        this.resident = new ResidentGui(plugin);
         this.commandHelp = new CommandHelp(plugin);
         this.reload = new CommandReload(plugin);
     }
