@@ -4,6 +4,18 @@ commands:
       argument:
         - 'settings'
         - 'setting'
+    resident:
+      argument:
+        - 'resident'
+        - 'residents'
+        - 'residentlist'
+        - 'residentslist'
+        - 'listresidents'
+        - 'listresident'
+        - 'addresident'
+        - 'addresidents'
+        - 'removeresident'
+        - 'removeresidents'
 #################
 #  PERMISSIONS  #
 #################

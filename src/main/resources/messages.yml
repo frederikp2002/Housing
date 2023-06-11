@@ -51,10 +51,11 @@ command.housing.help.commands:
   - '<#AF6EF0>/housing weather <weather><gray>: Change the weather in your house.</gray>'
   - '<#AF6EF0>/housing time <time><gray>: Set the time in your house.</gray>'
   - "<#AF6EF0>/housing biome <biome><gray>: Change your house's biome.</gray>"
-  - '<#AF6EF0>/housing biomelist<gray>: Get a list of available biomes.</gray>'
+  - '<#AF6EF0>/housing scenery<gray>: Set the scenery.</gray>'
   - ''
-  - '<gold>Resident Commands:</gold>'
-  - '<#AF6EF0>/housing residents<gray>: See a list of residents in your house.</gray>'
+  - '<gold>
+   Commands:</gold>'
+  - '<#AF6EF0>/housing resident<gray>: Add, Remove or get a list of Residents.</gray>'
   - '<#AF6EF0>/housing access<gray>: Manage who can access your house.</gray>'
   - '<#AF6EF0>/housing bans<gray>: See a list of players banned from your house.</gray>'
   - '<#AF6EF0>/housing ban <player><gray>: Ban a player from your house.</gray>'
@@ -85,6 +86,17 @@ command.housing.help.commands:
   - ''
   - '<green>Note:<gray> All of these settings and features can also be managed directly from the Housing Menu. Use </gray><#AF6EF0>/housing<gray> to access it.</gray>'
   - ''
+
+command.housing.settings.item.manage.name: '<!italic><green>Add & Remove Residents</green>'
+command.housing.settings.item.manage.lore:
+  - "<!italic><gray>Manage your current Residents here!</gray>"
+  - ''
+  - "<!italic><aqua><bold><key:key.attack></bold></aqua><gray> to add a Resident!</gray>"
+  - "<!italic><aqua><bold><key:key.use></bold></aqua><gray> to remove a Resident!</gray>"
+  -
+command.housing.settings.item.list.name: '<!italic><green>List of Residents</green>'
+command.housing.settings.item.list.lore:
+  - "<!italic><gray>View a list of all Residents here!</gray>"
 
 command.housing.settings.item.toggleFlight.name: '<!italic><gold>Toggle Flight</gold>'
 command.housing.settings.item.toggleFlight.lore:
