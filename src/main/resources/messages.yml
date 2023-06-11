@@ -1,0 +1,130 @@
+#########################################################################################################################
+# NAVIGATION -                                                                                                          #
+# Navigate easily with "CTRL + F"!                                                                                      #
+# To find a message easily, search for the key.                                                                         #
+# Keys are in the format of "<category>.<section>.<action>"                                                             #
+# Available categories are as follows: plugin, commands                                                                 #
+# Example: To get the string of the plugin being enabled, it would be: plugin.housing.enabled                           #
+#                                                                                                                       #
+# The "%s" is a placeholder.                                                                                            #
+# E.g. it can be used to display the gamemode that was set.                                                             #
+#                                                                                                                       #
+# To change the color and other stuff of a message, use the MiniMessages color code structure found here:               #
+# https://docs.advntr.dev/minimessage/format.html                                                                       #                                                                                                                     #
+#########################################################################################################################
+
+##########
+# PLUGIN #
+##########
+plugin.housing.enabled: 'The Housing plugin has been successfully enabled!'
+plugin.housing.disabled: 'The Housing plugin has been disabled.'
+plugin.dependencies.multiverseCore.found: 'Multiverse-Core has been successfully located!'
+plugin.dependencies.worldGuard.found: 'WorldGuard has been successfully located!'
+
+############
+# COMMANDS #
+############
+command.housing.created: '<green>Your house was successfully created!</green>'
+command.housing.teleported: '<green>You have been teleported to your house!</green>'
+command.housing.alreadyExists: '<red>You already have a house!</red>'
+command.housing.spawn.noHouse: '<red>You do not have a house!</red>'
+housing.commands.reload: '<green>The Housing plugin has been reloaded!</green>'
+housing.commands.noPermission: '<#CC0000>Invalid housing command! <red>Try <#AF6EF0>/housing <red>for the Housing Menu or <#AF6EF0>/housing help <red>for a list of commands.</red>'
+command.housing.notPlayer: 'Only players can use this command!'
+command.housing.invalidArgument: '<#CC0000>Invalid housing command! <red>Try <#AF6EF0>/%s <red>for the Housing Menu or <#AF6EF0>/%s help <red>for a list of commands.</red>'
+command.housing.disabledInteractions: "<red><bold>Hey!</bold></red> <gray>Sorry, but you can't interact with that here.</gray>"
+command.housing.disabledBlockPlacement: "<red><bold>Hey!</bold></red> <gray>Sorry, but you can't place that block here.</gray>"
+command.housing.disabledBlockBreaking: "<red><bold>Hey!</bold></red> <gray>Sorry, but you can't break that block here.</gray>"
+command.housing.disabledChestAccess: "<red><bold>Hey!</bold></red> <gray>Sorry, but you can't open that chest here.</gray>"
+
+command.housing.help.commands:
+  - ''
+  - '<gold>Basic Commands:</gold>'
+  - '<#AF6EF0>/housing<gray>: Open the Housing Menu.</gray>'
+  - '<#AF6EF0>/housing name <name><gray>: Change your house name.</gray>'
+  - '<#AF6EF0>/housing description <description><gray>: Change your house description.</gray>'
+  - '<#AF6EF0>/housing spawn<gray>: Teleport to the spawn point for your house.</gray>'
+  - '<#AF6EF0>/housing spawn set<gray>: Set the spawn point for your house.</gray>'
+  - "<#AF6EF0>/housing welcome <message><gray>: Set your house's welcome message.</gray>"
+  - ''
+  - '<gold>Environment Commands:</gold>'
+  - '<#AF6EF0>/housing weather <weather><gray>: Change the weather in your house.</gray>'
+  - '<#AF6EF0>/housing time <time><gray>: Set the time in your house.</gray>'
+  - "<#AF6EF0>/housing biome <biome><gray>: Change your house's biome.</gray>"
+  - '<#AF6EF0>/housing biomelist<gray>: Get a list of available biomes.</gray>'
+  - ''
+  - '<gold>Resident Commands:</gold>'
+  - '<#AF6EF0>/housing residents<gray>: See a list of residents in your house.</gray>'
+  - '<#AF6EF0>/housing access<gray>: Manage who can access your house.</gray>'
+  - '<#AF6EF0>/housing bans<gray>: See a list of players banned from your house.</gray>'
+  - '<#AF6EF0>/housing ban <player><gray>: Ban a player from your house.</gray>'
+  - '<#AF6EF0>/housing kick <player><gray>: CommandKick a player from your house.</gray>'
+  - ''
+  - '<gold>NPC Commands:</gold>'
+  - "<#AF6EF0>/housing shopkeeper name <name><gray>: Set your shopkeeper's name.</gray>"
+  - "<#AF6EF0>/housing shopkeeper spawn<gray>: Set your shopkeeper's spawn point.</gray>"
+  - "<#AF6EF0>/housing helper name <name><gray>: Set your helper's name.</gray>"
+  - "<#AF6EF0>/housing helper spawn<gray>: Set your helper's spawn point.</gray>"
+  - ''
+  - '<gold>Permission Commands:</gold>'
+  - '<#AF6EF0>/housing flight <players/residents><gray>: Toggle flight permission for players or residents.</gray>'
+  - '<#AF6EF0>/housing magic <players/residents><gray>: Toggle magic permission for players or residents.</gray>'
+  - '<#AF6EF0>/housing damage<gray>: Toggle damage in your house.</gray>'
+  - '<#AF6EF0>/housing chestaccess<gray>: Toggle if residents can open chests.</gray>'
+  - '<#AF6EF0>/housing togglebuild<gray>: Toggle if residents can build.</gray>'
+  - '<#AF6EF0>/housing togglekick<gray>: Toggle if residents can kick players.</gray>'
+  - '<#AF6EF0>/housing doors<gray>: Toggle if players can open doors.</gray>'
+  - '<#AF6EF0>/housing trapdoors<gray>: Toggle if players can open trapdoors.</gray>'
+  - '<#AF6EF0>/housing fencegates<gray>: Toggle if players can open fence gates.</gray>'
+  - ''
+  - '<gold>Other Commands:</gold>'
+  - '<#AF6EF0>/housing border<gray>: Toggle the border for your housing.</gray>'
+  - '<#AF6EF0>/housing leave<gray>: Leave your housing.</gray>'
+  - '<#AF6EF0>/housing upgrade<gray>: Check for housing upgrades.</gray>'
+  - '<dark_gray>Scroll up to view all commands ..</dark_gray>'
+  - ''
+  - '<green>Note:<gray> All of these settings and features can also be managed directly from the Housing Menu. Use </gray><#AF6EF0>/housing<gray> to access it.</gray>'
+  - ''
+
+command.housing.settings.item.toggleFlight.name: '<!italic><gold>Toggle Flight</gold>'
+command.housing.settings.item.toggleFlight.lore:
+  - "<!italic><gray>Status for Visitors:</gray> <green>Enabled</green>"
+  - "<!italic><gray>Status for Residents:</gray> <green>Enabled</green>"
+  - ""
+  - "<!italic><aqua><bold><key:key.attack></bold></aqua><gray> to toggle flight for Visitors!</gray>"
+  - "<!italic><aqua><bold><key:key.use></bold></aqua><gray> to toggle flight for Residents!</gray>"
+
+command.housing.settings.item.toggleMagic.name: '<!italic><gold>Toggle Magic</gold>'
+command.housing.settings.item.toggleMagic.lore:
+  - "<!italic><gray>Status for Visitors:</gray> <green>Enabled</green>"
+  - "<!italic><gray>Status for Residents:</gray> <green>Enabled</green>"
+  - ""
+  - "<!italic><aqua><bold><key:key.attack></bold></aqua><gray> to toggle magic for Visitors!</gray>"
+  - "<!italic><aqua><bold><key:key.use></bold></aqua><gray> to toggle magic for Residents!</gray>"
+
+command.housing.settings.item.toggleResidentAccess.name: '<!italic><gold>Toggle Resident Access</gold>'
+command.housing.settings.item.toggleResidentAccess.lore:
+  - "<!italic><gray>Status for Chest Access:</gray> <green>Enabled</green>"
+  - "<!italic><gray>Status for Build Access:</gray> <green>Enabled</green>"
+  - "<!italic><gray>Status for CommandKick Access:</gray> <green>Enabled</green>"
+  - ""
+  - "<!italic><aqua><bold><key:key.attack></bold></aqua><gray> to toggle Chest Access for Residents!</gray>"
+  - "<!italic><aqua><bold><key:key.use></bold></aqua><gray> to toggle Build Access for Residents!</gray>"
+  - "<!italic><aqua><bold><key:key.sneak> + <key:key.attack></bold></aqua><gray> to toggle CommandKick Access for Residents!</gray>"
+
+command.housing.settings.item.toggleDamage.name: '<!italic><gold>Toggle Damage</gold>'
+command.housing.settings.item.toggleDamage.lore:
+  - "<!italic><dark_red><bold>WARNING:</bold></dark_red> <gray>This also enables PVP</gray>"
+  - "<!italic><gray>Status for Damage:</gray> <green>Enabled</green>"
+  - ""
+  - "<!italic><aqua><bold><key:key.attack></bold></aqua><gray> to toggle Damage!</gray>"
+
+command.housing.settings.item.toggleInteractions.name: '<!italic><gold>Toggle Interactions</gold>'
+command.housing.settings.item.toggleInteractions.lore:
+  - "<!italic><gray>Status for Door Interactions:</gray> <green>Enabled</green>"
+  - "<!italic><gray>Status for Trapdoor Interactions:</gray> <green>Enabled</green>"
+  - "<!italic><gray>Status for Fence Gate Interactions:</gray> <green>Enabled</green>"
+  - ""
+  - "<!italic><aqua><bold><key:key.attack></bold></aqua><gray> to toggle Door Interactions!</gray>"
+  - "<!italic><aqua><bold><key:key.use></bold></aqua><gray> to toggle Trapdoor Interactions!</gray>"
+  - "<!italic><aqua><bold><key:key.sneak> + <key:key.attack></bold></aqua><gray> to toggle Fence Gate Interactions!</gray>"

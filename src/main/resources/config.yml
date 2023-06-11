@@ -1,0 +1,10 @@
+commands:
+  housing:
+    settings:
+      argument:
+        - 'settings'
+        - 'setting'
+#################
+#  PERMISSIONS  #
+#################
+housing.permissions.reload: 'housing.reload'

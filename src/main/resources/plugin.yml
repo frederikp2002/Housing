@@ -2,7 +2,11 @@ name: Housing
 version: '${project.version}'
 main: net.leyak.housing.Housing
 api-version: 1.19
-prefix: [House]
-depend: [Multiverse-Core]
+prefix: CommandHouse
+depend: [Multiverse-Core, WorldGuard]
 authors: [lividk]
 description: The housing system
+commands:
+  housing:
+    aliases: [home, house]
+    description: The main command for the housing system

@@ -62,9 +62,13 @@
             <id>sonatype</id>
             <url>https://oss.sonatype.org/content/groups/public/</url>
         </repository>
-        <repository> <!-- Required for Multiverse Core (used for Housing) -->
+        <repository> <!-- Required for Multiverse Core -->
             <id>OnARandomBox</id>
             <url>https://repo.onarandombox.com/content/groups/public/</url>
+        </repository>
+        <repository>
+            <id>sk89q-repo</id> <!-- Required for WorldEdit and WorldGuard -->
+            <url>https://maven.enginehub.org/repo/</url>
         </repository>
     </repositories>
 
@@ -79,6 +83,12 @@
             <groupId>com.onarandombox.multiversecore</groupId> <!-- Required for Housing -->
             <artifactId>Multiverse-Core</artifactId>
             <version>4.3.1</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.sk89q.worldguard</groupId>
+            <artifactId>worldguard-bukkit</artifactId>
+            <version>7.0.8</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>
