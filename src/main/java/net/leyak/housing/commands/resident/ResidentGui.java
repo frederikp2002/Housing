@@ -22,12 +22,14 @@ public class ResidentGui implements Listener {
 
     private final Housing plugin;
     private final AddResident addResident;
+    private final RemoveResident removeResident;
     private final List<ResidentItem> residentItems = new ArrayList<>();
     private final TextComponent title = Component.text("ResidentGui Settings");
 
     public ResidentGui(Housing plugin) {
         this.plugin = plugin;
         this.addResident = new AddResident(plugin);
+        this.removeResident = new RemoveResident(plugin);
 
         residentItems.add(new ResidentItem(
                 Material.PLAYER_HEAD,
@@ -78,8 +80,8 @@ public class ResidentGui implements Listener {
         if (slot == 12) {
             player.closeInventory();
              addResident.openAddResidentGUI(player);
-        } else if(slot == 30) {
-            player.sendMessage("ResidentGui Access");
+        } else if(slot == 14) {
+            removeResident.openRemoveResidentGUI(player);
         }
     }
 

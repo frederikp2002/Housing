@@ -37,6 +37,29 @@ command.housing.disabledBlockPlacement: "<red><bold>Hey!</bold></red> <gray>Sorr
 command.housing.disabledBlockBreaking: "<red><bold>Hey!</bold></red> <gray>Sorry, but you can't break that block here.</gray>"
 command.housing.disabledChestAccess: "<red><bold>Hey!</bold></red> <gray>Sorry, but you can't open that chest here.</gray>"
 
+commands.housing.resident.addResident.success: '<green>%s has been added as a Resident!</green>'
+commands.housing.resident.addResident.item.name: '<!italic><green>%s</green>'
+commands.housing.resident.addResident.item.lore:
+  - '<!italic><gray>Click to add as resident.</gray>'
+
+commands.housing.resident.addResident.noPlayersFound.item.name: '<!italic><red>No players found!</red>'
+commands.housing.resident.addResident.noPlayersFound.item.lore:
+  - "<!italic><gray>It doesn't seem like there are</gray>"
+  - "<!italic><gray>any players in this world to add!</gray>"
+  - ''
+  - "<!italic><gray>If you want to add a player, then they</gray>"
+  - "<!italic><gray>must be at the Housing with you!</gray>"
+
+commands.housing.resident.removeResident.success: '<green>%s has been removed as a Resident!</green>'
+commands.housing.resident.removeResident.item.name: '<!italic><green>%s</green>'
+commands.housing.resident.removeResident.item.lore:
+  - '<!italic><gray>Click to remove as resident!</gray>'
+
+commands.housing.resident.removeResident.noPlayersFound.item.name: '<!italic><red>No players found!</red>'
+commands.housing.resident.removeResident.noPlayersFound.item.lore:
+  - "<!italic><gray>It doesn't seem like there are</gray>"
+  - "<!italic><gray>any Residents at your housing!</gray>"
+
 command.housing.help.commands:
   - ''
   - '<gold>Basic Commands:</gold>'
@@ -87,16 +110,14 @@ command.housing.help.commands:
   - '<green>Note:<gray> All of these settings and features can also be managed directly from the Housing Menu. Use </gray><#AF6EF0>/housing<gray> to access it.</gray>'
   - ''
 
-command.housing.settings.item.manage.name: '<!italic><green>Add & Remove Residents</green>'
+command.housing.settings.item.manage.name: '<!italic><green>Add Residents</green>'
 command.housing.settings.item.manage.lore:
   - "<!italic><gray>Manage your current Residents here!</gray>"
-  - ''
-  - "<!italic><aqua><bold><key:key.attack></bold></aqua><gray> to add a ResidentGui!</gray>"
-  - "<!italic><aqua><bold><key:key.use></bold></aqua><gray> to remove a ResidentGui!</gray>"
-  -
-command.housing.settings.item.list.name: '<!italic><green>List of Residents</green>'
+
+command.housing.settings.item.list.name: '<!italic><green>Remove Residents</green>'
 command.housing.settings.item.list.lore:
-  - "<!italic><gray>View a list of all Residents here!</gray>"
+  - "<!italic><gray>Get a list of all Residents here!</gray>"
+  - "<!italic><gray>You can remove Residents from this menu, too!</gray>"
 
 command.housing.settings.item.toggleFlight.name: '<!italic><gold>Toggle Flight</gold>'
 command.housing.settings.item.toggleFlight.lore:

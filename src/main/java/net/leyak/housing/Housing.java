@@ -5,6 +5,8 @@ import com.sk89q.worldguard.WorldGuard;
 import com.sk89q.worldguard.protection.flags.StateFlag;
 import com.sk89q.worldguard.protection.flags.registry.FlagRegistry;
 import net.leyak.housing.commands.CommandHouse;
+import net.leyak.housing.commands.resident.AddResident;
+import net.leyak.housing.commands.resident.RemoveResident;
 import net.leyak.housing.commands.resident.ResidentGui;
 import net.leyak.housing.commands.settings.*;
 import net.leyak.housing.handlers.ConfigHandler;
@@ -40,6 +42,8 @@ public final class Housing extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new ToggleTrapdoorInteraction(this), this);
         getServer().getPluginManager().registerEvents(new ToggleBuildAccess(this), this);
         getServer().getPluginManager().registerEvents(new ResidentGui(this), this);
+        getServer().getPluginManager().registerEvents(new AddResident(this), this);
+        getServer().getPluginManager().registerEvents(new RemoveResident(this), this);
         getLogger().info(messageHandler.getMessage("plugin.housing.enabled").content());
     }
 

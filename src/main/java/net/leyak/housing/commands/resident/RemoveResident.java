@@ -22,11 +22,12 @@ import org.bukkit.inventory.meta.SkullMeta;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AddResident implements Listener {
+public class RemoveResident implements Listener {
+
     private final Housing plugin;
     private final WorldManagement worldManagement;
 
-    public AddResident(Housing plugin) {
+    public RemoveResident(Housing plugin) {
         this.plugin = plugin;
         this.worldManagement = new WorldManagement(plugin);
     }
@@ -35,9 +36,9 @@ public class AddResident implements Listener {
         List<Player> players = new ArrayList<>();
 
         ProtectedCuboidRegion region = worldManagement.getRegionsInPlayerHousing(worldName, regionName);
-        
+
         for (Player player : world.getPlayers()) {
-            if (!region.getMembers().contains(player.getUniqueId()) && !region.getOwners().contains(player.getUniqueId())) {
+            if (region.getMembers().contains(player.getUniqueId()) && !region.getOwners().contains(player.getUniqueId())) {
                 players.add(player);
             }
         }
@@ -54,12 +55,12 @@ public class AddResident implements Listener {
         return lore;
     }
 
-    public void openAddResidentGUI(Player owner) {
+    public void openRemoveResidentGUI(Player owner) {
         String worldName = "housing-" + owner.getUniqueId() + "-1";
         String regionName = "housing_area";
         World world = owner.getWorld();
-        List<Component> lore = new ArrayList<>(getLore("commands.housing.resident.addResident.item.lore"));
-        Inventory gui = Bukkit.createInventory(null, 54, "Add Resident");
+        List<Component> lore = new ArrayList<>(getLore("commands.housing.resident.removeResident.item.lore"));
+        Inventory gui = Bukkit.createInventory(null, 54, "Remove Resident");
         List<Player> players = getPlayers(regionName, worldName, world);
 
         if (players.isEmpty()) {
@@ -69,7 +70,7 @@ public class AddResident implements Listener {
                 ItemStack item = new ItemStack(Material.PLAYER_HEAD);
                 SkullMeta meta = (SkullMeta) item.getItemMeta();
                 meta.setOwningPlayer(players.get(i));
-                meta.displayName(plugin.getMessageHandler().getMessage("commands.housing.resident.addResident.item.name", players.get(i).getName()));
+                meta.displayName(plugin.getMessageHandler().getMessage("commands.housing.resident.removeResident.item.name", players.get(i).getName()));
                 meta.lore(lore);
                 item.setItemMeta(meta);
                 gui.setItem(i, item);
@@ -84,8 +85,8 @@ public class AddResident implements Listener {
         ItemStack clickedItem = event.getCurrentItem();
         Inventory clickedInventory = event.getClickedInventory();
 
-        // check if the clicked inventory is the "Add Resident" GUI
-        if (event.getView().getTitle().equals("Add Resident")) {
+        // check if the clicked inventory is the "Remove Resident" GUI
+        if (event.getView().getTitle().equals("Remove Resident")) {
             // make sure the clicked slot was not empty
             if (clickedItem != null && clickedItem.getType() != Material.AIR) {
                 // make sure the clicked item is a player head
@@ -96,9 +97,9 @@ public class AddResident implements Listener {
                         String worldName = "housing-" + clicker.getUniqueId() + "-1";
                         String regionName = "housing_area";
 
-                        // Your method to add the target player to the WorldGuard region goes here.
-                        addPlayerToRegion(regionName, worldName, target);
-                        clicker.sendMessage(plugin.getMessageHandler().getMessage("commands.housing.resident.addResident.success", target.getName()));
+                        // Remove the target player from the WorldGuard region
+                        removePlayerFromRegion(regionName, worldName, target);
+                        clicker.sendMessage(plugin.getMessageHandler().getMessage("commands.housing.resident.removeResident.success", target.getName()));
 
                         // Get all items in the inventory
                         List<ItemStack> items = new ArrayList<>();
@@ -123,17 +124,17 @@ public class AddResident implements Listener {
         }
     }
 
-    private void addPlayerToRegion(String regionName, String worldName, OfflinePlayer target) {
+    private void removePlayerFromRegion(String regionName, String worldName, OfflinePlayer target) {
         ProtectedCuboidRegion region = worldManagement.getRegionsInPlayerHousing(worldName, regionName);
-        region.getMembers().addPlayer(target.getUniqueId());
+        region.getMembers().removePlayer(target.getUniqueId());
     }
 
     public void NoPlayersGUI(Player owner) {
-        List<Component> lore = new ArrayList<>(getLore("commands.housing.resident.addResident.noPlayersFound.item.lore"));
-        Inventory gui = Bukkit.createInventory(null, 54, "Add Resident");
+        List<Component> lore = new ArrayList<>(getLore("commands.housing.resident.removeResident.noPlayersFound.item.lore"));
+        Inventory gui = Bukkit.createInventory(null, 54, "Remove Resident");
         ItemStack item = new ItemStack(Material.BARRIER);
         ItemMeta meta = item.getItemMeta();
-        meta.displayName(plugin.getMessageHandler().getMessage("commands.housing.resident.addResident.noPlayersFound.item.name"));
+        meta.displayName(plugin.getMessageHandler().getMessage("commands.housing.resident.removeResident.noPlayersFound.item.name"));
         meta.lore(lore);
         item.setItemMeta(meta);
         gui.setItem(22, item);

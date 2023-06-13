@@ -86,7 +86,7 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>com.sk89q.worldguard</groupId>
+            <groupId>com.sk89q.worldguard</groupId> <!-- Required for WorldEdit and WorldGuard -->
             <artifactId>worldguard-bukkit</artifactId>
             <version>7.0.8</version>
             <scope>provided</scope>
