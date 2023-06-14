@@ -22,6 +22,7 @@ public class CommandHouse implements CommandExecutor {
     private final Settings settings;
     private final ResidentGui resident;
     private final CommandHelp commandHelp;
+    private final CommandSpawn commandSpawn;
     private final CommandReload reload;
 
     private static final String RELOAD_COMMAND = "reload";
@@ -35,6 +36,7 @@ public class CommandHouse implements CommandExecutor {
         this.settings = new Settings(plugin);
         this.resident = new ResidentGui(plugin);
         this.commandHelp = new CommandHelp(plugin);
+        this.commandSpawn = new CommandSpawn(plugin);
         this.reload = new CommandReload(plugin);
     }
 
@@ -49,7 +51,7 @@ public class CommandHouse implements CommandExecutor {
         if (strings.length == 0) {
             return handleNoArgumentsCommand(player, worldName);
         } else {
-            return handleCommandWithArguments(player, worldName, strings[0]);
+            return handleCommandWithArguments(player, worldName, strings); // pass entire strings array
         }
     }
 
@@ -66,9 +68,11 @@ public class CommandHouse implements CommandExecutor {
         return true;
     }
 
-    private boolean handleCommandWithArguments(Player player, String worldName, String firstArg) {
+    private boolean handleCommandWithArguments(Player player, String worldName, String[] args) {
         List<String> settingsCommands = plugin.getConfigHandler().getStringList("commands.housing.settings.argument");
         List<String> residentCommands = plugin.getConfigHandler().getStringList("commands.housing.resident.argument");
+
+        String firstArg = args[0]; // Get the first argument from the array
 
         if (settingsCommands.contains(firstArg.toLowerCase())) {
             settings.openSettingsGUI(player);
@@ -80,7 +84,7 @@ public class CommandHouse implements CommandExecutor {
             reload.reload(player);
             return true;
         } else if (firstArg.equalsIgnoreCase(SPAWN_COMMAND)) {
-            return handleSpawnCommand(player, worldName);
+            return handleSpawnCommand(player, worldName, args); // pass entire args array
         } else if (firstArg.equalsIgnoreCase(HELP_COMMAND)) {
             return handleHelpCommand(player);
         } else {
@@ -89,13 +93,12 @@ public class CommandHouse implements CommandExecutor {
         }
     }
 
-    private boolean handleSpawnCommand(Player player, String worldName) {
-        if (plugin.getCore().getMVWorldManager().getMVWorld(worldName) != null) {
-            playerInteraction.teleportPlayerToWorld(player, worldName);
-            return true;
+    private boolean handleSpawnCommand(Player player, String worldName, String[] args) {
+        // Check if there are enough arguments and the second argument is "set"
+        if (args.length > 1 && args[1].equalsIgnoreCase("set")) {
+            return commandSpawn.setHousingSpawn(worldName, player);
         }
-        player.sendMessage(plugin.getMessageHandler().getMessage("command.housing.spawn.noHouse"));
-        return false;
+        return commandSpawn.teleportToHousingSpawn(worldName, player);
     }
 
     private boolean handleHelpCommand(Player player) {

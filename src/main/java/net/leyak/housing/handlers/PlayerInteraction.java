@@ -17,7 +17,7 @@ public class PlayerInteraction {
 
     public void setSpawn(Player player, String worldName) {
         plugin.getCore().getMVWorldManager().getMVWorld(worldName).setSpawnLocation(player.getLocation());
-        player.sendMessage(plugin.getMessageHandler().getMessage("command.housing.setSpawn"));
+        player.sendMessage(plugin.getMessageHandler().getMessage("command.housing.spawn.set"));
     }
 
 }
